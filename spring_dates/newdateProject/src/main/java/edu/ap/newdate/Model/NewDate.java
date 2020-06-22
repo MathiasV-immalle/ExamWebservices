@@ -43,6 +43,13 @@ public class NewDate {
 		this.endDate = endDate;
 		this.between = between;
 		this.daysRemoved = daysRemoved;
+	}
+	
+	public NewDate(final Date checkDate, final Date startDate, final Date endDate, final String between) {
+		this.checkDate = checkDate;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.between = between;
     }
 
 	public int getId() {

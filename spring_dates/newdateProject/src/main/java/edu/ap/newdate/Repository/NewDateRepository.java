@@ -8,5 +8,5 @@ import edu.ap.newdate.Model.*;
 
 @Repository
 public interface NewDateRepository extends CrudRepository<NewDate, Integer>{
-    NewDate findByCheckDate(Date checkDate);
+    Date findByCheckDate(String checkDate);
 }

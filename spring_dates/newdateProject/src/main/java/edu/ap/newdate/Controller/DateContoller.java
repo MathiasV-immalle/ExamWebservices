@@ -1,6 +1,11 @@
 package edu.ap.newdate.Controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.datetime.standard.DateTimeContext;
@@ -28,7 +33,7 @@ public class DateContoller {
     }
 
     @GetMapping("/date")
-    public String grade(){
+    public String date(){
         return "date";
     }
 
@@ -38,30 +43,35 @@ public class DateContoller {
         return "list";
     }
 
-    
-
     @PostMapping("/date")
-    public RedirectView setGrade(
-        @RequestParam("checkDate") String checkDate,
-        @RequestParam("startDate") String startDate,
-        @RequestParam("endDate") String endDate){
-        //String between = "";
-            // if(checkDate.after(startDate) && checkDate.before(endDate)){
-            //     between = "Yes";
-            // } else {
-            //     between = "No";
-            // }
+    public RedirectView setDate(
+        @RequestParam("checkDate") String checkDateString,
+        @RequestParam("startDate") String startDateString,
+        @RequestParam("endDate") String endDateString) throws ParseException{
+        Date checkDate = new SimpleDateFormat("yyyy-MM-dd").parse(checkDateString);
+        Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(startDateString);
+        Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDateString);
+        String between = "";
+            if(checkDate.after(startDate) && checkDate.before(endDate)){
+                between = "Yes";
+            } else {
+                between = "No";
+            }
+            System.out.println(checkDate);
+            System.out.println(startDate);
+            System.out.println(endDate);
+            System.out.println(between);
 
-            //dateRepository.save(new NewDate(checkDate, startDate, endDate));
+            dateRepository.save(new NewDate(checkDate, startDate, endDate, between));
 
             return new RedirectView("/list");
         }
 
-    // @GetMapping("/{firstName}/{lastName}")
-    // public String getDetail(@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName, Model model) {
-    //     Date grade = dateRepository.findByFirstNameAndLastName(firstName, lastName);
-    //     model.addAttribute("grade", grade);
-    //     return "detail";
-    // }
+    @GetMapping("/{checkDate}")
+    public String getDetail(@PathVariable("checkDate") String checkDate, Model model) {
+        Date date = dateRepository.findByCheckDate(checkDate);
+        model.addAttribute("date", date);
+        return "detail";
+    }
     
 }
