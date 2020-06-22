@@ -17,14 +17,14 @@
             <th>startDate</th>
             <th>endDate</th>
             <th>Between</th>
-            <th>DaysRemoved</th>
+            <th>DaysApart</th>
         </tr>
         <tr th:each='date: ${dates}'>
             <td th:text='${date.checkDate}' />
             <td th:text='${date.startDate}' />
             <td th:text='${date.endDate}' />
             <td th:text='${date.between}' />
-            <td th:text='${date.daysRemoved}' />
+            <td th:text='${date.daysApart}' />
         </tr>
     </table>
 </div>
