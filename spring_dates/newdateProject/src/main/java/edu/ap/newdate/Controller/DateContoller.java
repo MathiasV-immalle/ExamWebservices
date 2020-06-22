@@ -2,22 +2,16 @@ package edu.ap.newdate.Controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.datetime.standard.DateTimeContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
 import edu.ap.newdate.Model.NewDate;
@@ -76,13 +70,5 @@ public class DateContoller {
             dateRepository.save(new NewDate(checkDate, startDate, endDate, between, daysApart));
 
             return new RedirectView("/list");
-        }
-
-    @GetMapping("/{checkDate}")
-    public String getDetail(@PathVariable("checkDate") String checkDate, Model model) {
-        Date date = dateRepository.findByCheckDate(checkDate);
-        model.addAttribute("date", date);
-        return "detail";
-    }
-    
+        }    
 }

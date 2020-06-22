@@ -31,12 +31,6 @@ public class NewDate {
 	public NewDate() {
 	}
 
-	public NewDate(final Date checkDate, final Date startDate, final Date endDate) {
-		this.checkDate = checkDate;
-		this.startDate = startDate;
-		this.endDate = endDate;
-    }
-
 	public NewDate(final Date checkDate, final Date startDate, final Date endDate, final String between, final long daysApart) {
 		this.checkDate = checkDate;
 		this.startDate = startDate;
@@ -44,13 +38,6 @@ public class NewDate {
 		this.between = between;
 		this.daysApart = daysApart;
 	}
-	
-	public NewDate(final Date checkDate, final Date startDate, final Date endDate, final String between) {
-		this.checkDate = checkDate;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.between = between;
-    }
 
 	public int getId() {
 		return id;

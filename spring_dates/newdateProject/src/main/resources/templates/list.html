@@ -14,17 +14,17 @@
     <table  class='table'>
         <tr>
             <th>checkDate</th>
-            <th>startDate</th>
-            <th>endDate</th>
             <th>Between</th>
             <th>DaysApart</th>
+            <!--<th>startDate</th>
+            <th>endDate</th>-->
         </tr>
         <tr th:each='date: ${dates}'>
             <td th:text='${date.checkDate}' />
-            <td th:text='${date.startDate}' />
-            <td th:text='${date.endDate}' />
             <td th:text='${date.between}' />
             <td th:text='${date.daysApart}' />
+            <!--<td th:text='${date.startDate}' />
+            <td th:text='${date.endDate}' />-->
         </tr>
     </table>
 </div>
