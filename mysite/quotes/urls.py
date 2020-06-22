@@ -9,5 +9,5 @@ urlpatterns = [
 	path('search/results', views.search_results, name='search_results'),
 	path('add/form', views.add_form, name='add_form'),
 	path('add/results', views.add_results, name='add_results'),
-	path('<str:author_name>', views.detail, name='detail'),
+	path('<str:id>', views.detail, name='detail'),
 ]

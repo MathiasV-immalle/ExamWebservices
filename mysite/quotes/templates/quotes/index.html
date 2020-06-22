@@ -2,7 +2,7 @@
  <br/>
  <ul>
     {% for a in authors %}
-        <li><a href='{% url 'quotes:detail' a %}'>{{ a.author_name }}</a> :  {{ a.author_bio }}</li>
+        <li><a href='{% url 'quotes:detail' a.id %}'>{{ a.id }}</a> :  {{ a.author_bio }}</li>
     {% endfor %}
 </ul>
 <br /><br />

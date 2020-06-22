@@ -4,16 +4,20 @@ from .models import Author
 from .models import Quote
 import string
 
+counter = 1;
+def get_counter():
+    return counter;
+
 def index(request):
     authors = [a for a in Author.objects.all()]
 
     return render(request, 'quotes/index.html', {'authors': authors})
 
-def detail(request, author_name):
-    author = Author.objects.filter(author_name=author_name).first()
+def detail(request, id):
+    author = Author.objects.filter(id=id).first()
     quote_list = author.quote_set.all()
 
-    return render(request, 'quotes/detail.html', {'author_name': author.author_name, 'quote_list': quote_list})
+    return render(request, 'quotes/detail.html', { 'id': author.id,  'author_name': author.author_name, 'quote_list': quote_list})
 
 def search_form(request):
     return render(request, 'quotes/search_form.html', {})

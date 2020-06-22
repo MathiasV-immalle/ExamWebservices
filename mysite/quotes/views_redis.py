@@ -13,7 +13,7 @@ def index(request):
 
     return render(request, 'quotes/index.html', {'author_names': author_names})
 
-def detail(request, author_name):
+def detail(request, id):
     # get all authors
     author_list = r.keys('author:*')
     # iterate all authors
@@ -21,7 +21,7 @@ def detail(request, author_name):
         # get name
         author = r.get(a)
         # compare to url parameter
-        if author == author_name:
+        if author == id:
             i = string.split(a, ':')[1]
             quote_list = r.smembers('quote:' + i)
 
