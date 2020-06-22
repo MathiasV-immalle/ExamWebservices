@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th='http://www.thymeleaf.org'>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+
+    <title>Grade List</title>
+</head>
+
+<body>
+<div class='card card-body bg-light'>
+    <h1>Date List</h1>
+    <br/><br/>
+    <table  class='table'>
+        <tr>
+            <th>checkDate</th>
+            <th>startDate</th>
+            <th>endDate</th>
+        </tr>
+        <tr th:each='date: ${dates}'>
+            <td th:date='${date.checkDate}' />
+            <td th:date='${date.startDate}' />
+            <td th:date='${date.endDate}' />
+        </tr>
+    </table>
+</div>
+&nbsp;&nbsp;<a href='/date'>Check a date</a>
+</body>
+</html>

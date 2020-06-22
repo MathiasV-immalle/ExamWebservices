@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PlswerkApplication<plswerk>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "edu.ap.plswerk.PlswerkApplication",
+            "projectName": "plswerk",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-NewDateApplication<plswerk>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "edu.ap.newdate.NewDateApplication",
+            "projectName": "plswerk",
+            "args": ""
+        }
+    ]
+}
