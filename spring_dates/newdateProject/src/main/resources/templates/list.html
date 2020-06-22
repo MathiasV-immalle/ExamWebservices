@@ -16,12 +16,15 @@
             <th>checkDate</th>
             <th>startDate</th>
             <th>endDate</th>
+            <th>Between</th>
+            <th>DaysRemoved</th>
         </tr>
         <tr th:each='date: ${dates}'>
-            <td th:date='${date.checkDate}' />
-            <td th:date='${date.startDate}' />
-            <td th:date='${date.endDate}' />
-            <td th:date='${date.between}' />
+            <td th:text='${date.checkDate}' />
+            <td th:text='${date.startDate}' />
+            <td th:text='${date.endDate}' />
+            <td th:text='${date.between}' />
+            <td th:text='${date.daysRemoved}' />
         </tr>
     </table>
 </div>

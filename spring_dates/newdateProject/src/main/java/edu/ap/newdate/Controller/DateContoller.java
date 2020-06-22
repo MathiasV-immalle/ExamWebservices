@@ -3,6 +3,8 @@ package edu.ap.newdate.Controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -57,12 +59,21 @@ public class DateContoller {
             } else {
                 between = "No";
             }
-            System.out.println(checkDate);
-            System.out.println(startDate);
-            System.out.println(endDate);
-            System.out.println(between);
+        
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+            LocalDateTime now = LocalDateTime.now();  
+            Date today = new Date(dtf.format(now));  
 
-            dateRepository.save(new NewDate(checkDate, startDate, endDate, between));
+            long minutes = checkDate.getTime() / 60000;
+            long minutesToday = today.getTime() / 60000;
+            long daysApart = (minutes-minutesToday)/60/24;
+
+            /** +1 when it is a future date, because then it does not count the day itself */
+            if(daysApart > 0){
+                daysApart++;
+            }
+
+            dateRepository.save(new NewDate(checkDate, startDate, endDate, between, daysApart));
 
             return new RedirectView("/list");
         }

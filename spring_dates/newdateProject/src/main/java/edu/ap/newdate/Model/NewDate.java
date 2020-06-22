@@ -26,7 +26,7 @@ public class NewDate {
 	private String between;
 	
 	@Column
-    private int daysRemoved;
+    private long daysRemoved;
 
 	public NewDate() {
 	}
@@ -37,7 +37,7 @@ public class NewDate {
 		this.endDate = endDate;
     }
 
-	public NewDate(final Date checkDate, final Date startDate, final Date endDate, final String between, final int daysRemoved) {
+	public NewDate(final Date checkDate, final Date startDate, final Date endDate, final String between, final long daysRemoved) {
 		this.checkDate = checkDate;
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -92,11 +92,11 @@ public class NewDate {
 		this.between = between;
 	}
 
-	public int getDaysRemoved() {
+	public long getDaysRemoved() {
 		return daysRemoved;
 	}
 
-	public void setDaysRemoved(final int daysRemoved) {
+	public void setDaysRemoved(final long daysRemoved) {
 		this.daysRemoved = daysRemoved;
 	}
 }
